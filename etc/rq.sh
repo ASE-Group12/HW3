@@ -62,7 +62,7 @@ for i in *; do
   | sed 's/[ \t]//g'  \
   | sort -t, -nk 1 -nk 3   \
   | gawk -F, 'NF> 1 && !($2 in a) && NF > 5 { OFS=","; print $1,$2,$3,$4;  a[$2]}' \
-  | tail -r
+  | gawk '{a[++n]=$0} END {print(length(a)); for(i=length(a);i>=1;i--) print a[i] }'
 done | report
 
 
