@@ -1,4 +1,4 @@
-# Easier  AI (just the important bits)
+# hw3# Easier  AI (just the important bits)
 
 
 &copy; 2024 Tim Menzies, timm@ieee.org     
