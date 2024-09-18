@@ -1,0 +1,43 @@
+
+data/optimize/config/HSMGP_num.csv
+asIs	: 0.049
+div	: 0.402
+rows	: 3456
+xcols	: 14
+ycols	: 1
+
+rrp,4 : 0.00 secs
+rrp,13 : 0.10 secs
+exploit/b=False,20 : 0.04 secs
+exploit/b=True,20 : 0.12 secs
+exploit/b=False,30 : 0.07 secs
+exploit/b=True,30 : 0.15 secs
+exploit/b=False,40 : 0.10 secs
+exploit/b=True,40 : 0.17 secs
+rrp,4 : 0.00 secs
+rrp,14 : 0.10 secs
+explore/b=False,20 : 0.04 secs
+explore/b=True,20 : 0.13 secs
+explore/b=False,30 : 0.07 secs
+explore/b=True,30 : 0.15 secs
+explore/b=False,40 : 0.10 secs
+explore/b=True,40 : 0.18 secs
+#
+ 0,         exploit/b=True,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,         explore/b=True,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,         exploit/b=True,30,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.00
+ 0,         explore/b=True,30,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,        explore/b=False,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,        explore/b=False,30,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,        exploit/b=False,40,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,         explore/b=True,20,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.01,  0.01
+ 0,        explore/b=False,20,  0.00,  0.01, *                   |                   ,  0.00,  0.00,  0.00,  0.01,  0.02
+ 0,        exploit/b=False,20,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+ 0,        exploit/b=False,30,  0.00,  0.01, *                   |                   ,  0.00,  0.00,  0.00,  0.01,  0.02
+ 0,         exploit/b=True,20,  0.00,  0.00, *                   |                   ,  0.00,  0.00,  0.00,  0.00,  0.01
+#
+ 1,                     rrp,4,  0.03,  0.00, -*                  |                   ,  0.02,  0.02,  0.03,  0.03,  0.04
+ 1,                     rrp,4,  0.03,  0.02,  *                  |                   ,  0.01,  0.02,  0.03,  0.04,  0.04
+ 1,                 asIs,3456,  0.03,  0.03, -*---------------   |                   ,  0.01,  0.02,  0.03,  0.05,  0.31
+ 1,                    rrp,13,  0.03,  0.02, -*-                 |                   ,  0.02,  0.03,  0.03,  0.05,  0.06
+ 1,                    rrp,14,  0.04,  0.01,   *                 |                   ,  0.02,  0.03,  0.04,  0.04,  0.06

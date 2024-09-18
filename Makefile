@@ -9,9 +9,8 @@ MAKEFLAGS += --warn-undefined-variables
 .SILENT:
 
 Top=$(shell git rev-parse --show-toplevel)
-Data ?= $(Top)/../data/optimize
+Data ?= $(Top)/data/optimize
 Tmp  ?= $(HOME)/tmp
-Act  ?= mqs
 
 help      :  ## show help
 	gawk -f $(Top)/etc/help.awk $(MAKEFILE_LIST) 
@@ -53,19 +52,23 @@ docs/%.html : %.py etc/py2html.awk etc/b4.html docs/ezr.css Makefile ## make doc
 	gawk -f etc/py2html.awk $< \
 	| pandoc -s  -f markdown --number-sections --toc --toc-depth=5 \
 					-B etc/b4.html --mathjax \
-  		     --css ezr.css --highlight-style tango \
+  		     --css ezr.css --highlight-style monochrome \
 					 --metadata title="$<" \
 	  			 -o $@ 
 
 # another commaned
+Out=$(HOME)/tmp
+Act ?= _mqs
 acts: ## experiment: mqs
-	$(MAKE) Data=$(Data) Tmp=~/tmp/ Act=mqs act
+	mkdir -p ~/tmp
+	$(MAKE)  actb4  > $(Tmp)/$(Act).sh
+	bash $(Tmp)/$(Act).sh
 
-act: ## experiment: mqs
+actb4: ## experiment: mqs
+	echo "mkdir -p $(Out)/$(Act)"
 	$(foreach d, config hpo misc process,         \
 		$(foreach f, $(wildcard $(Data)/$d/*.csv),   \
-				mkdir -p $(Out)/$(Act)/$d;                 \
-       ./ezr.py -t $f -e $(Act)  | tee $(Out)/$(Act)/$d/$f ; ))
+				echo "python3 $(PWD)/ezr.py  -t $f -e $(Act)  | tee $(Out)/$(Act)/$(shell basename $f) & "; ))
 
 fred:
 	echo $x

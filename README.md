@@ -77,3 +77,4 @@ This code has lots of
 using, say:
 
      python3 -B ezr.py -e klass      # calls the eg.klass() function
+>>>>>>> ezr/24Aug14
