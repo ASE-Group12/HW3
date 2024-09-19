@@ -13,6 +13,10 @@ BSD-2 license. Share and enjoy.
 
 ## Outputs when we run `rq.sh` for high and low-dimensional data using our `extend.py` file:
 
+![More than 6 dimension](output\image\high_output.png)
+
+![Less than 6 dimension](output\image\low_output.png)
+
 ---
 
 ## Summary of results:
