@@ -50,6 +50,11 @@ stats.report(somes, 0.01)
 # for folder in os.listdir('data/optimize'):
 #   for file in os.listdir(f'data/optimize/{folder}'):
 #     if file.endswith('csv'):
-#       cmds += f'python3.13 -B extend.py data/optimize/{folder}/{file} > output/{file} &\n'
+#       file_path = f'data/optimize/{folder}/{file}'
+#       d = DATA().adds(csv(file_path)) 
+#       if len(d.cols.x) > 6:
+#         cmds = f'python3.13 extend.py data/optimize/{folder}/{file} > output/output_highX/{file} &\n'
+#       else:
+#         cmds = f'python3.13 extend.py data/optimize/{folder}/{file} > output/output_LowX/{file} &\n'
 
-# print(cmds)
+#     print(cmds)
