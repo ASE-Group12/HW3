@@ -12,12 +12,26 @@ def myfun():
         else:
           cmds += f'python3.13 extend.py data/optimize/{folder}/{file} > output_LowX/{file} &\n'
 
-  print(cmds)     
+  print(cmds)
 
+def split():
+  cmds = ''
+  for folder in os.listdir('data/optimize'):
+    for file in os.listdir(f'data/optimize/{folder}'):
+      if file.endswith('csv'):
+        file_path = f'data/optimize/{folder}/{file}'
+        d = DATA().adds(csv(file_path)) 
+        if len(d.cols.x) > 6:
+          cmds = f'python3.13 extend.py data/optimize/{folder}/{file} > output/output_highX/{file} &\n'
+        else:
+          cmds = f'python3.13 extend.py data/optimize/{folder}/{file} > output/output_LowX/{file} &\n'
+  return cmds
 
 if __name__ == '__main__':
   if 'generate_commands' in sys.argv:
     myfun()
+  elif 'split_reports' in sys.argv:
+    split()
   else:
     d = DATA().adds(csv(sys.argv[1]))
     b4 = [d.chebyshev(row) for row in d.rows]
