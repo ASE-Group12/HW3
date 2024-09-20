@@ -1,10 +1,27 @@
-# Easier  AI (just the important bits)
+# Steps to generate reports, split them according to no of X cols and then summarize the results
 
+## Step 1: Generate commands for running the extension for all data files usig 
+``` python3.13 extend.py generate_commands > report.sh ```
 
-&copy; 2024 Tim Menzies, timm@ieee.org     
-BSD-2 license. Share and enjoy.  
+## Step 2: Running the report.sh file will give us the output of reports of all csv files in the data
+``` bash report.sh ```
+This takes a while to run and the processes can be monitored by using htop
 
-----------------------------------
+## Step 3: Generate commands to split the output based on the number of X cols
+``` python3.13 extend.py split_reports > split.sh ```
+
+## Step 4: Running the split.sh file will split the outputs from outputs/ to outputs_highX/ and outputs_lowX/
+``` bash split.sh ```
+
+## Step 5: Summarizing the reports
+```
+cd outputs_highX
+bash /workspaces/ezr/etc/rq.sh
+
+cd ..
+cd outputs_lowX
+bash /workspaces/ezr/etc/rq.sh
+```
 
 # Claims
 
